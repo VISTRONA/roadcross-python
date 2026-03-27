@@ -1,37 +1,26 @@
 from turtle import Turtle
 
 
+move_dist = 10
+
 class Player(Turtle):
     def __init__(self):
         super().__init__()
-        self.penup()
-        self.left(90)
-        self.shapesize(stretch_wid=1.5, stretch_len=1.5)
         self.shape("turtle")
+        self.shapesize(stretch_wid=1.5, stretch_len=1.5)
+        self.penup()
+        self.goto(0,-270)
+        self.left(90)
 
-
-    def reset_player(self):
-        # self.clear()
-        self.goto(0, -270)
-
-    def moveUp(self):
-        if self.ycor() < 270:
-            self.forward(10)
-
-
-    def moveDown(self):
-        if self.ycor() > -270:
-            self.backward(10)
-
-    def moveRight(self):
-        if self.xcor() < 250:
-            self.right(90)
-            self.forward(10)
-            self.left(90)
-
-    def moveLeft(self):
-        if self.xcor() > -250:
-            self.left(90)
-            self.forward(10)
-            self.right(90)
-
+    def move_up(self):
+        self.forward(move_dist)
+    def move_down(self):
+        self.forward(-move_dist)
+    def move_left(self):
+        self.left(90)
+        self.forward(move_dist)
+        self.right(90)
+    def move_right(self):
+        self.right(90)
+        self.forward(move_dist)
+        self.left(90)

@@ -1,33 +1,30 @@
 from turtle import Screen
+from car_managment import Car
+import time
 
 from player import Player
 
 screen = Screen()
-
-screen.setup(width=600, height=600)
+screen.setup(width=600 , height=600 )
 screen.tracer(0)
-screen.title("Road Crossing Turtle")
+
+car = Car()
 
 
 player = Player()
-player.reset_player()
+
 
 screen.listen()
-screen.onkey(player.moveUp, "Up")
-screen.onkey(player.moveDown,"Down")
-screen.onkey(player.moveRight,"Right")
-screen.onkey(player.moveLeft, "Left")
+screen.onkey(player.move_up, "Up")
+screen.onkey(player.move_down, "Down")
+screen.onkey(player.move_left, "Left")
+screen.onkey(player.move_right, "Right")
 
 
-
-
-game_on = True
-while game_on:
+game = True
+while game:
+    car.move()
     screen.update()
-
-
-
-
-
+    time.sleep(0.1)
 
 screen.exitonclick()
